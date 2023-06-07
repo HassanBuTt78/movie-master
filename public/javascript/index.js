@@ -18,7 +18,7 @@ const search = () => {
 };
 
 const home = () => {
-  window.location.href = "";
+  window.location.href = window.location.origin;
 };
 
 logo.addEventListener("click", home);
