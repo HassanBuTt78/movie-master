@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css" type="text/css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {{>header}}
+    <main>
+        <div id="moviePageData">
+            <div>
+                <img src="{{{img}}}" alt="{{{title}}}">
+            </div>
+            <div>
+                <h1>{{title}}</h1>
+                <p>{{teaser}}</p>
+                <div id="genreContainer">
+                    {{#each genre}}
+                    <span>{{lookup ../genre @key}}</span>
+                    {{/each}}
+                </div>
+                <div id="linksContainer">
+                    {{#each links}}
+                    <a href="{{{lookup ../links @key}}}" target="_blank">
+                        <button>{{@key}}</button>
+                    </a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

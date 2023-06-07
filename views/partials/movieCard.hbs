@@ -1,0 +1,6 @@
+{{#each title}}
+<div id="{{{lookup ../id @key}}}" class="movieCard">
+    <img src="{{{lookup ../img @key}}}" alt="Card Image">
+    <p>{{lookup ../title @key}}</p>
+</div>
+{{/each}}

@@ -1,0 +1,91 @@
+html {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    color: white;
+    background-color: rgb(1, 1, 46);
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* Designing for the search bar */
+#searchBar {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    margin: 10px auto;
+
+}
+#searchText {
+    padding: 2px 10px;
+    flex-grow: 1;
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: 0;
+}
+#searchButton {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: transparent;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+
+
+
+/* Designing of Movie Card */
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    font-size: small;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 3px;
+    transition-duration: 300ms;
+    cursor: pointer;
+    margin: 4px;
+}
+.movieCard>img {
+    border-radius: 10px;
+}
+.movieCard>p{
+    padding: 3px;
+    font-weight: bold;
+}
+.movieCard:hover{
+    transform: scale(1.05);
+    background-color: rgb(196, 196, 196);
+}
+
+
+
+
+
+
+
+/* HomePage Card Container */
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    flex-wrap: wrap;
+}
