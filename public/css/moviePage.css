@@ -1,0 +1,64 @@
+#moviePageData {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    width: 80vw;
+}
+
+#moviePageData>div {
+    max-width: 700px;
+    margin: 10px 0;
+}
+#moviePageData>div>img {
+    margin: 15px;
+}
+
+
+
+#titleM {
+    font-size: x-large;
+    margin: 10px 0;
+}
+
+#teaser {
+    font-size: large;
+    margin: 10px 0;
+    max-width: 500px;
+}
+
+#genreContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 3px;
+    color: rgb(70, 70, 70);
+}
+
+#linksContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#linksContainer>a>button {
+    margin: 5px;
+}
+
+#linksContainer>h3 {
+    color: rgb(1, 1, 46);
+    margin: 3px;
+}
+
+
+button {
+    background-color: transparent;
+    border: 2px solid rgb(1, 1, 46);
+    border-radius: 5px;
+    color: rgb(1, 1, 46);
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+button:hover {
+    background-color: rgb(1, 1, 46);
+    color: white;
+}

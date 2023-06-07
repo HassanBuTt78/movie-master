@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css" type="text/css">
+    <link rel="stylesheet" href="/css/moviePage.css" type="text/css">
     <title>{{title}}</title>
 </head>
 
@@ -16,15 +17,18 @@
             <div>
                 <img src="{{{img}}}" alt="{{{title}}}">
             </div>
-            <div>
-                <h1>{{title}}</h1>
-                <p>{{teaser}}</p>
+            <div id="info">
+                <h1 id="titleM">{{title}}</h1>
                 <div id="genreContainer">
                     {{#each genre}}
                     <span>{{lookup ../genre @key}}</span>
                     {{/each}}
                 </div>
+                <hr>
+                <p id="teaser">{{teaser}}</p>
+                
                 <div id="linksContainer">
+                    <h3>Download Links</h3>
                     {{#each links}}
                     <a href="{{{lookup ../links @key}}}" target="_blank">
                         <button>{{@key}}</button>
@@ -34,9 +38,7 @@
             </div>
         </div>
     </main>
-    <footer>
-
-    </footer>
+    {{>footer}}
 
 </body>
 
