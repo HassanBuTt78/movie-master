@@ -12,19 +12,20 @@
 }
 #moviePageData>div>img {
     margin: 15px;
+    width: 250px;
 }
 
 
 
 #titleM {
-    font-size: x-large;
+    font-size: xx-large;
     margin: 10px 0;
 }
 
 #teaser {
-    font-size: large;
     margin: 10px 0;
     max-width: 500px;
+    font-weight: lighter;
 }
 
 #genreContainer {
@@ -34,16 +35,18 @@
     color: rgb(70, 70, 70);
 }
 
-#linksContainer {
+#info > h3{
+    font-size: x-large;
+}
+.linksContainer {
     display: flex;
-    flex-direction: column;
 }
 
-#linksContainer>a>button {
+.linksContainer>a>button {
     margin: 5px;
 }
 
-#linksContainer>h3 {
+.linksContainer>h3 {
     color: rgb(1, 1, 46);
     margin: 3px;
 }
@@ -61,4 +64,22 @@ button {
 button:hover {
     background-color: rgb(1, 1, 46);
     color: white;
+}
+
+#watchHeading {
+    display: flex;
+    margin: 7px 0;
+}
+#watchHeading > h3{
+    font-size: x-large;
+}
+#watchHeading > span{
+    margin: 1px 3px;
+    display: flex;
+    color: grey;
+    font-size: small;
+    align-items: end;
+}
+#watchHeading > span > span {
+    margin: 0 3px;
 }

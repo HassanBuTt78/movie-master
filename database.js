@@ -86,7 +86,7 @@ const processString = async (string) => {
 };
 
 const getRandom = async () => {
-  let found = Movie.aggregate().sample(4);
+  let found = Movie.aggregate([{$match:{IMDB_rating: {$gte: '8.5'}}}]).sample(4);
   return await found;
 };
 

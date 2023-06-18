@@ -1,0 +1,14 @@
+#streamPage{
+    width: 80%;
+    margin: 10px auto ;
+}
+#instructions {
+    text-align: center;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    #streamPage{
+        width: 95%;
+    }
+} 

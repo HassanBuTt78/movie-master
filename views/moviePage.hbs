@@ -27,13 +27,33 @@
                 <hr>
                 <p id="teaser">{{teaser}}</p>
                 
-                <div id="linksContainer">
-                    <h3>Download Links</h3>
-                    {{#each links}}
-                    <a href="{{{lookup ../links @key}}}" target="_blank">
+                <h3>Download Links</h3>
+                <div class="linksContainer">
+                    {{#each torrents}}
+                    <a href="{{{lookup ../torrents @key}}}">
                         <button>{{@key}}</button>
                     </a>
                     {{/each}}
+                </div>
+                <div class="linksContainer">
+                    {{#each magnets}}
+                    <a href="{{{lookup ../magnets @key}}}">
+                        <button>{{@key}}</button>
+                    </a>
+                    {{/each}}
+                </div>
+                <div id="watchOnline">
+                    <div id="watchHeading">
+                    <h3>Watch Online</h3><span>Powered by <span><a href="https://webtor.io" target="_blank">Webtor</a></span></span>
+                    </div>
+                    <div class="watchLinks">
+                        {{#each watch}}
+                        <a href="watch/{{{lookup ../watch @key}}}?q={{{@key}}}" target="_blank">
+                        <button>{{@key}}</button>
+                        </a>
+                        {{/each}}
+                    </div>
+
                 </div>
             </div>
         </div>
