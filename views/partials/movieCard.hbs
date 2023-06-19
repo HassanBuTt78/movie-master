@@ -2,5 +2,10 @@
 <div id="{{{lookup ../id @key}}}" class="movieCard">
     <img src="{{{lookup ../img @key}}}" alt="Card Image">
     <p>{{lookup ../title @key}}</p>
+    <span class="IMDB">{{lookup ../IMDB @key}}
+        <span>
+            IMDB
+        </span>
+    </span>
 </div>
 {{/each}}

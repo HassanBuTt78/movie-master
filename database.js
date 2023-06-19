@@ -17,6 +17,7 @@ const connectDB = async () => {
       title: String,
       teaser: String,
       img: String,
+      IMDB_rating: String,
       genre: Array,
       links: Object,
       devL: {
@@ -35,8 +36,10 @@ const movieById = async (id) => {
 };
 
 const moviesByGenre = async (genre, amount) => {
-  if (typeof amount == undefined) {
-    let found = await Movie.find({ genre: { $regex: genre, $options: "i" } });
+  if (amount == undefined) {
+    let found = await Movie.find({
+      genre: { $regex: genre, $options: "i" },
+    }).limit(30);
     return await found;
   } else {
     let found = await Movie.find({
@@ -47,11 +50,11 @@ const moviesByGenre = async (genre, amount) => {
 };
 
 const genreQuery = async (query, genre, amount) => {
-  if (typeof amount == undefined) {
+  if (amount == undefined) {
     let found = await Movie.find({
       genre: { $regex: genre, $options: "i" },
       title: { $regex: query, $options: "i" },
-    });
+    }).limit(30);
     return await found;
   } else {
     let found = await Movie.find({
@@ -65,8 +68,8 @@ const genreQuery = async (query, genre, amount) => {
 const query = async (query, amount) => {
   query = await processString(query);
 
-  if (typeof amount == undefined) {
-    let found = await Movie.find({ title: { $regex: query } });
+  if (amount == undefined) {
+    let found = await Movie.find({ title: { $regex: query } }).limit(30);
     return await found;
   } else {
     let found = await Movie.find({ title: { $regex: query } }).limit(amount);
@@ -86,7 +89,9 @@ const processString = async (string) => {
 };
 
 const getRandom = async () => {
-  let found = Movie.aggregate([{$match:{IMDB_rating: {$gte: '8.5'}}}]).sample(4);
+  let found = Movie.aggregate([
+    { $match: { IMDB_rating: { $gte: "8.5" } } },
+  ]).sample(4);
   return await found;
 };
 

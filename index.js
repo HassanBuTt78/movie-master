@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "/views/partials"));
-app.use("/api", api);
+// app.use("/api", api);
 app.use("/", website);
 database.connectDB();
 
