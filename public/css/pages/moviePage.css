@@ -13,6 +13,8 @@
 #moviePageData>div>img {
     margin: 15px;
     width: 250px;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
 }
 
 
@@ -47,39 +49,10 @@
 }
 
 .linksContainer>h3 {
-    color: rgb(1, 1, 46);
+    color: var(--primary-color);
     margin: 3px;
 }
 
-
-button {
-    background-color: transparent;
-    border: 2px solid rgb(1, 1, 46);
-    border-radius: 5px;
-    color: rgb(1, 1, 46);
-    font-weight: bold;
-    padding: 5px 10px;
-}
-
-button:hover {
-    background-color: rgb(1, 1, 46);
-    color: white;
-}
-
-#watchHeading {
-    display: flex;
-    margin: 7px 0;
-}
-#watchHeading > h3{
-    font-size: x-large;
-}
-#watchHeading > span{
-    margin: 1px 3px;
-    display: flex;
-    color: grey;
-    font-size: small;
-    align-items: end;
-}
-#watchHeading > span > span {
-    margin: 0 3px;
+#searchBar{
+    width: 70%;
 }

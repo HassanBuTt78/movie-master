@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/streamPage.css">
+    <link rel="stylesheet" href="/css/pages/index.css">
     <title>{{{title}}}</title>
 </head>
 
 <body>
     {{>header}}
-    
+    {{>searchbar}}
     <main id="streamPage">
         <div id="instructions">
             <h3>Powered by Webtor</h3>
@@ -24,6 +23,7 @@
     </main>
     {{>footer}}
 
+    <link rel="stylesheet" href="/css/pages/streamPage.css">
     <script src="/javascript/index.js" defer></script>
 </body>
 

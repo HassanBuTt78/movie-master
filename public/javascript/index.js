@@ -11,7 +11,7 @@ const getId = (element) => {
 const search = () => {
   let query = searchBar.value.trim();
   if (query.length != 0) {
-    window.location.href = `?search=${query}`;
+    window.location.href = `/?search=${query}`;
   } else {
     console.log("ERROR: field is empty");
   }

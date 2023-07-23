@@ -1,0 +1,67 @@
+/* Designing of Movie Card */
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: fit-content;
+    font-size: small;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    transition-duration: 300ms;
+    cursor: pointer;
+    margin: 4px;
+    position: relative;
+    background-color: #0f0c20;
+    user-select: none;
+  }
+  .IMDB {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+    padding: 8px 9px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transition-duration: 300ms;
+  }
+  .IMDB > span {
+    font-size: 7px;
+    margin: 0;
+  }
+  .movieCard > img {
+    border-radius: 10px;
+  }
+  
+  .movieCard > p {
+    padding: 3px;
+    font-weight: bold;
+  }
+  
+  .movieCard:hover {
+    transform: scale(1.05);
+    background-color: #de0f3f21;
+  }
+  
+  .movieCard:hover .IMDB {
+    opacity: 1;
+  }
+  
+  .movieCard:hover p{
+    color: var(--primary-color);
+  }
+
+
+@media only screen and (max-width: 600px) {
+  .movieCard {
+    width: 150px;
+  }
+}

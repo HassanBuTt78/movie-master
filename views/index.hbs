@@ -5,20 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <title>Homepage</title>
+    <link rel="stylesheet" href="/css/pages/index.css">
+    <title>Movie Master</title>
 </head>
 
 <body>
     {{>header}}
     <main>
-        {{>searchbar}}
+        <section id="hero">
+            <div>
+                <h1>Search and Watch from <span class="primary-color" id="movieCount">52,000+</span> Movies for <span class="primary-color">Free</span></h1>
+                {{>searchbar}}
+            </div>
+        </section>
 
+        <section id="dcBotSect">
+            <div>
+                <h2>
+                    Invite Our Discord Bot to Your Server
+                </h2>
+                <a href="https://bit.ly/Movie-Master-" target="_blank">
+                    <button>
+                        Invite Bot →
+                    </button>
+                </a>
+            </div>
+        </section>
 
-        <h2 id="stxt">Random Suggestions</h2>
-        <div class="cardContainer">
-            {{>movieCard}}
-        </div>
+        <section id="suggestionSect">
+            <div>
+                <h2 id="stxt"> <img src="images/icons/suggestion.svg"> Random Suggestions</h2>
+                <div class="cardContainer">
+                    {{>movieCard}}
+                </div>
+            </div>
+        </section>
 
 
         {{!-- {{#each title}}
@@ -32,8 +53,24 @@
 
     </main>
     {{>footer}}
-
+    <link rel="stylesheet" href="/css/pages/home.css">
     <script src="/javascript/index.js" defer></script>
+    <script>
+        const movieCount = document.getElementById("movieCount");
+        let count = 10000;
+        const interval  = setInterval(() => {
+        count = count + 353;
+        movieCount.innerHTML = `${count}+`;
+        if (count >= 52000) {
+            stopInterval();
+            movieCount.innerHTML = "52,000+";
+        }
+        }, 2);
+
+        function stopInterval(){
+        clearInterval(interval)
+        }
+    </script>
 </body>
 
 </html>

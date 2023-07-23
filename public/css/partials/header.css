@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    position: static;
+    width: 100vw;
+    background-color: var(--secondary-color);
+    height: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #logo {
+    cursor: pointer;
+    max-height: 320px;
+    user-select: none;
+  }

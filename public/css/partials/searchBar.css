@@ -1,0 +1,41 @@
+/* Designing for the search bar */
+#searchBar {
+    display: flex;
+    width: 100%;
+    min-width: 350px;
+    justify-content: center;
+    margin: 10px auto;
+  }
+  
+  #searchText {
+    border: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    flex-grow: 1;
+    color: white;
+    background-color: #0f0c20;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    outline: 0;
+  }
+  
+  #searchButton {
+    background-color: var(--primary-color);
+    padding: 10px 15px 8px 15px ;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition-duration: 400ms;
+    border-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  #searchButton>img{
+    transform: translateX(-2px);
+    transition-duration: 400ms;
+  }
+  
+  #searchButton:hover img{
+    transform: translateX(3px);
+  }

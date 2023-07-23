@@ -21,3 +21,4 @@ database.connectDB();
 app.listen(port, () => {
   console.log(`server live at port ${port}`);
 });
+
