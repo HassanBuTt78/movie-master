@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    color: rgb(175, 175, 175);
+    background-color: var(--secondary-color);
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}

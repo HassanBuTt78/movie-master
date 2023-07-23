@@ -7,6 +7,10 @@
     margin: 10px;
 }
 
+#searchBar{
+    width: 70%;
+}
+
 @media only screen and (max-width: 600px) {
     #streamPage{
         width: 95%;

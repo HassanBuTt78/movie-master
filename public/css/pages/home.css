@@ -1,0 +1,96 @@
+header {
+  background-color: transparent;
+  position: absolute;
+}
+/* HomePage Card Container */
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 5px auto;
+  flex-wrap: wrap;
+}
+
+#stxt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+  color: white;
+  margin: 20px 0;
+}
+
+/* Hero Section homepage */
+#hero {
+  display: grid;
+  background-image: url("/images/pictures/home-hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  place-content: center;
+  height: 100vh;
+  color: white;
+  font-size: x-large;
+}
+
+#hero > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  width: 90vw;
+}
+
+#searchBar {
+  width: 50%;
+}
+
+.primary-color {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Discord Bot Section */
+#dcBotSect {
+  padding: 50px 10vw;
+  background-color: var(--primary-color);
+}
+
+#dcBotSect > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#dcBotSect > div > h2 {
+  color: var(--secondary-color);
+  flex-grow: 1;
+  font-size: xx-large;
+  margin: 3px;
+}
+
+#dcBotSect > div > a > button {
+  font-size: large;
+  margin: 3px;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+#dcBotSect > div > a > button:hover{
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Suggestion Section */
+/* #suggestionSect {
+  } */
+
+#suggestionSect > div {
+  margin: 100px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #dcBotSect > div > h2 {
+    font-size: x-large;
+    text-align: center;
+  }
+}
