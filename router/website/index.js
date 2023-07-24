@@ -1,15 +1,15 @@
 const express = require("express");
-const database = require("../../database.js");
+const api = require("../../api/movie.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
   let search = req.query.search;
   if (search == undefined) {
-    let data = await database.getRandom();
-    let img = data.map((x) => x.img);
-    let title = data.map((x) => x.title);
-    let id = data.map((x) => x._id);
-    let IMDB = data.map((x) => x.IMDB_rating);
+    let data = await api.getPopularMovies();
+    let img = data.map((x) => x.medium_cover_image);
+    let title = data.map((x) => x.title_long);
+    let id = data.map((x) => x.id);
+    let IMDB = data.map((x) => x.rating);
     res.render("index", {
       img: img,
       title: title,
@@ -17,12 +17,15 @@ router.get("/", async (req, res) => {
       id: id,
     });
   } else {
-    search = decodeURIComponent(req.query.search);
-    let data = await database.query(search, 30);
-    let img = data.map((x) => x.img);
-    let title = data.map((x) => x.title);
-    let id = data.map((x) => x._id);
-    let IMDB = data.map((x) => x.IMDB_rating);
+    search = req.query.search;
+    let data = await api.query(search);
+    if (typeof data === "object" && !Array.isArray(data) && data !== null)
+      data = [];
+
+    let img = data.map((x) => x.medium_cover_image);
+    let title = data.map((x) => x.title_long);
+    let id = data.map((x) => x.id);
+    let IMDB = data.map((x) => x.rating);
     res.render("searchResults", {
       img: img,
       title: title,
