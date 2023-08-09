@@ -40,3 +40,12 @@ button:hover {
   background-color: var(--primary-color);
   color: white;
 }
+
+#stxt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: x-large;
+  color: white;
+  margin: 20px 0;
+}

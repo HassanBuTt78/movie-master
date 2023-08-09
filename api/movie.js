@@ -1,4 +1,5 @@
 const axios = require("axios");
+const {shuffleArray} = require("../utils/arrayHelper")
 
 const movieById = async (movieId) => {
   const apiUrl = `https://yts.mx/api/v2/movie_details.json?movie_id=${movieId}&with_images=true`;
@@ -6,7 +7,7 @@ const movieById = async (movieId) => {
   try {
     const response = await axios.get(apiUrl);
     if (response.status === 200) {
-      return response.data.data.movie; // Assuming the movie data is under the "movie" property
+      return response.data.data.movie;
     } else {
       throw new Error("API request failed");
     }
@@ -15,7 +16,7 @@ const movieById = async (movieId) => {
   }
 };
 
-const query = async (query = "", limit = 30, page = 1, genre = "") => {
+const query = async (query = "", limit = 20, page = 1, genre = "") => {
   const apiUrl = `https://yts.mx/api/v2/list_movies.json?limit=${limit}&page=${page}&query_term=${query}&genre=${genre}&sort_by=download_count`;
   try {
     const response = await axios.get(apiUrl);
@@ -57,13 +58,15 @@ const getSimilarMovies = async (_id) => {
 };
 
 
-const getPopularMovies = async (_limit = 4) => {
+const getPopularMovies = async (_limit = 20) => {
     const apiUrl = `https://yts.mx/api/v2/list_movies.json?sort_by=download_count&limit=${_limit}&query_term=2023`;
   
     try {
       const response = await axios.get(apiUrl);
       if (response.status === 200) {
-        return response.data.data.movies;
+        const movies = response.data.data.movies;
+        shuffleArray(movies)
+        return movies.slice(0,4);
       } else {
         throw new Error("API request failed");
       }

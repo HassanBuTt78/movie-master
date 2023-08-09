@@ -13,12 +13,3 @@ header {
 #searchBar{
   width: 70%;
 }
-
-#stxt {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: xx-large;
-  color: white;
-  margin: 20px 0;
-}

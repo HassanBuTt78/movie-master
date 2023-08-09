@@ -1,5 +1,6 @@
 const express = require("express");
 const api = require("../../api/movie.js");
+const { generateMagnetLink } = require("../../utils/magnetLinks.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -37,40 +38,58 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/movie/:id", async (req, res) => {
-  let id = req.params.id;
+  const id = req.params.id;
 
-  let data = await database.movieById(id);
+  const [movieData, similarMoviesData] = await Promise.all([
+    api.movieById(id),
+    api.getSimilarMovies(id),
+  ]);  if (movieData == undefined) return;
 
-  let watch = {};
-  for (const key in data.links.magnets) {
-    if (data.links.magnets.hasOwnProperty(key)) {
-      const trimmedKey = key.trim().split(" ")[0];
-      watch[trimmedKey] = data._id;
-    }
+  //making array of magnets and torrents
+  const magnetLinks = new Object();
+  const torrentLinks = new Object();
+  const watch = new Object();
+  for (const torrent of movieData.torrents) {
+    const magnetLink = generateMagnetLink(torrent.hash, movieData.title);
+    magnetLinks[torrent.quality + " Magnet"] = magnetLink;
+    watch[torrent.quality] = id;
+    torrentLinks[torrent.quality + " Torrent"] = torrent.url;
   }
 
+
+
+  let img = similarMoviesData.map((x) => x.medium_cover_image);
+  let title = similarMoviesData.map((x) => x.title_long);
+  let sugId = similarMoviesData.map((x) => x.id);
+  let IMDB = similarMoviesData.map((x) => x.rating);
+
   res.render("moviePage", {
-    img: data.img,
-    title: data.title,
-    id: data._id,
-    IMDB: data.IMDB_rating,
-    teaser: data.teaser,
-    genre: data.genre,
-    magnets: data.links.magnets,
-    torrents: data.links.torrents,
+    _img: movieData.medium_cover_image,
+    _title: movieData.title_long,
+    _id: movieData.id,
+    _IMDB: movieData.rating,
+    teaser: movieData.description_full,
+    genre: movieData.genres,
+    torrents: torrentLinks,
+    magnets: magnetLinks,
     watch: watch,
+
+    img: img,
+    title: title,
+    id: sugId,
+    IMDB: IMDB,
+
   });
 });
 
 router.get("/movie/watch/:id", async (req, res) => {
-  let data = await database.movieById(req.params.id);
-  if (req.query.q != undefined) {
-    let q = req.query.q + " Magnet";
-    let links = data.links.magnets;
-    streamLink = links[q];
-  } else {
-    let links = data.links.magnets;
-    streamLink = Object.values(links)[0];
+  let data = await api.movieById(req.params.id);
+  let streamLink;
+  let q = req.query.q || "720p";
+  for (const torrent of data.torrents) {
+    if (torrent.quality == q) {
+      streamLink = generateMagnetLink(torrent.hash, data.title);
+    }
   }
   res.render("streamPage", {
     link: streamLink,
