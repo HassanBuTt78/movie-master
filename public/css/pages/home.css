@@ -11,15 +11,6 @@ header {
   flex-wrap: wrap;
 }
 
-#stxt {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: xx-large;
-  color: white;
-  margin: 20px 0;
-}
-
 /* Hero Section homepage */
 #hero {
   display: grid;
@@ -75,7 +66,7 @@ header {
   color: var(--secondary-color);
   border-color: var(--secondary-color);
 }
-#dcBotSect > div > a > button:hover{
+#dcBotSect > div > a > button:hover {
   background-color: var(--secondary-color);
   color: white;
 }

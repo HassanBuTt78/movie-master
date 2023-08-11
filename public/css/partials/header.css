@@ -9,6 +9,6 @@ header {
   }
   #logo {
     cursor: pointer;
-    max-height: 320px;
+    max-height: 90px;
     user-select: none;
   }

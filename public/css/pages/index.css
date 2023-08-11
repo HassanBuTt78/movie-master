@@ -25,6 +25,13 @@ body {
   flex-direction: column;
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 10%;
+
+}
 
 button {
   background-color: transparent;
@@ -39,4 +46,13 @@ button {
 button:hover {
   background-color: var(--primary-color);
   color: white;
+}
+
+#stxt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: x-large;
+  color: white;
+  margin: 20px 0;
 }
