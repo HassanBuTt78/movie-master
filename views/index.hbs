@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/pages/index.css">
     <title>Movie Master</title>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VKLLEBPF9"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1VKLLEBPF9');
+    </script>
+
 </head>
 
 <body>
@@ -34,7 +46,7 @@
 
         <section id="suggestionSect">
             <div>
-                <h2 id="stxt"> <img src="images/icons/suggestion.svg"> Popular Movies</h2>
+                <h2 id="stxt"> <img src="images/icons/suggestion.svg"> - Popular Movies of 2023</h2>
                 <div class="cardContainer">
                     {{>movieCard}}
                 </div>

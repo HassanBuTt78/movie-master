@@ -25,6 +25,13 @@ body {
   flex-direction: column;
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 10%;
+
+}
 
 button {
   background-color: transparent;
