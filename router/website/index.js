@@ -64,7 +64,7 @@ router.get("/movie/:id", async (req, res) => {
   let IMDB = similarMoviesData.map((x) => x.rating);
 
   res.render("moviePage", {
-    _img: movieData.medium_cover_image,
+    _img: movieData.large_cover_image,
     _title: movieData.title_long,
     _id: movieData.id,
     _IMDB: movieData.rating,
