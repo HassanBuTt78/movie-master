@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Not Found</title>
+<style>
+  :root {
+    --primary-color: #de0f3f;
+    --secondary-color: #070512;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    text-align: center;
+  }
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .back-link {
+    display: inline-block;
+    padding: 8px 16px; /* Adjusted padding */
+    border: 2px solid var(--primary-color);
+    border-radius: 15px; /* Adjusted border radius */
+    font-size: 1rem; /* Adjusted font size */
+    color: var(--primary-color);
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .back-link:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <p><a class="back-link" href="/">Go back to the home page</a></p>
+  </div>
+</body>
+</html>

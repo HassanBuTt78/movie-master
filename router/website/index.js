@@ -1,6 +1,7 @@
 const express = require("express");
 const api = require("../../api/movie.js");
 const { generateMagnetLink } = require("../../utils/magnetLinks.js");
+const async = require("hbs/lib/async.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -37,14 +38,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get(["/movie/watch", "/movie"], async(req, res)=> {
+  res.redirect('/')
+})
+
 router.get("/movie/:id", async (req, res) => {
   const id = req.params.id;
 
   const [movieData, similarMoviesData] = await Promise.all([
     api.movieById(id),
     api.getSimilarMovies(id),
-  ]);  if (movieData == undefined) return;
-
+  ]);
+  if (movieData == undefined) return;
+  if (movieData.id == 0) {res.status(404).sendFile(__dirname, "../public/html/404.html"); return;}
   //making array of magnets and torrents
   const magnetLinks = new Object();
   const torrentLinks = new Object();
@@ -55,8 +61,6 @@ router.get("/movie/:id", async (req, res) => {
     watch[torrent.quality] = id;
     torrentLinks[torrent.quality + " Torrent"] = torrent.url;
   }
-
-
 
   let img = similarMoviesData.map((x) => x.medium_cover_image);
   let title = similarMoviesData.map((x) => x.title_long);
@@ -78,12 +82,14 @@ router.get("/movie/:id", async (req, res) => {
     title: title,
     id: sugId,
     IMDB: IMDB,
-
   });
 });
 
+
+
 router.get("/movie/watch/:id", async (req, res) => {
   let data = await api.movieById(req.params.id);
+  if (data.id == 0) {res.status(404).sendFile(__dirname, "../public/html/404.html"); return;}
   let streamLink;
   let q = req.query.q || "720p";
   for (const torrent of data.torrents) {
@@ -97,4 +103,9 @@ router.get("/movie/watch/:id", async (req, res) => {
   });
 });
 
+
+router.get("/movie/watch", async(req, res)=> {
+  console.log("it is working")
+  res.redirect('/')
+})
 module.exports = router;
