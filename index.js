@@ -13,6 +13,10 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "/views/partials"));
 app.use("/", website);
+app.use((req, res) => {
+  res.status(404).sendFile(__dirname + '/public/html/404.html');
+});
+
 
 app.listen(port, () => {
   console.log(`server live at port ${port}`);
